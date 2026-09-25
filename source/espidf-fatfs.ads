@@ -31,6 +31,15 @@ package ESPIDF.FATFS is
       mount_config     : esp_vfs_fat_mount_config_t;
       wl_handle        : out ESPIDF.Wear_Levelling.wl_handle_t);
 
+   function esp_vfs_fat_spiflash_unmount_rw_wl
+     (base_path : ESPIDF.C_Strings.char_array_string;
+      wl_handle : ESPIDF.Wear_Levelling.wl_handle_t)
+      return esp_err_t;
+
+   procedure esp_vfs_fat_spiflash_unmount_rw_wl
+     (base_path : ESPIDF.C_Strings.char_array_string;
+      wl_handle : ESPIDF.Wear_Levelling.wl_handle_t);
+
 private
 
    sizeof_esp_vfs_fat_mount_config_t : constant int

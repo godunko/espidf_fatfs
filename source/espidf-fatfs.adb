@@ -52,6 +52,40 @@ package body ESPIDF.FATFS is
            (base_path, partition_label, mount_config, wl_handle));
    end esp_vfs_fat_spiflash_mount_rw_wl;
 
+   ----------------------------------------
+   -- esp_vfs_fat_spiflash_unmount_rw_wl --
+   ----------------------------------------
+
+   function esp_vfs_fat_spiflash_unmount_rw_wl
+     (base_path : ESPIDF.C_Strings.char_array_string;
+      wl_handle : ESPIDF.Wear_Levelling.wl_handle_t)
+      return esp_err_t
+   is
+      function Imported
+        (base_path : ESPIDF.C_Strings.const_char_ptr;
+         wl_handle : ESPIDF.Wear_Levelling.wl_handle_t)
+         return esp_err_t
+        with Import, Convention => C,
+             External_Name => "esp_vfs_fat_spiflash_unmount_rw_wl";
+
+   begin
+      return
+        Imported
+          (ESPIDF.C_Strings.As_const_char_ptr (base_path), wl_handle);
+   end esp_vfs_fat_spiflash_unmount_rw_wl;
+
+   ----------------------------------------
+   -- esp_vfs_fat_spiflash_unmount_rw_wl --
+   ----------------------------------------
+
+   procedure esp_vfs_fat_spiflash_unmount_rw_wl
+     (base_path : ESPIDF.C_Strings.char_array_string;
+      wl_handle : ESPIDF.Wear_Levelling.wl_handle_t) is
+   begin
+      Ada_ESP_Check_Error
+        (esp_vfs_fat_spiflash_unmount_rw_wl (base_path, wl_handle));
+   end esp_vfs_fat_spiflash_unmount_rw_wl;
+
    ----------------
    -- Initialize --
    ----------------
