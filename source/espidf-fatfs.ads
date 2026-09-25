@@ -14,6 +14,10 @@ package ESPIDF.FATFS is
 
    type esp_vfs_fat_mount_config_t is limited private;
 
+   procedure Set_format_if_mount_failed
+     (Self : in out esp_vfs_fat_mount_config_t;
+      To   : Boolean);
+
    function esp_vfs_fat_spiflash_mount_rw_wl
      (base_path        : ESPIDF.C_Strings.char_array_string;
       partition_label  : ESPIDF.C_Strings.char_array_string;

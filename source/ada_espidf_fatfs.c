@@ -12,3 +12,8 @@ void __ada_VFS_FAT_MOUNT_DEFAULT_CONFIG(esp_vfs_fat_mount_config_t *cfg)
 {
     *cfg = (esp_vfs_fat_mount_config_t)VFS_FAT_MOUNT_DEFAULT_CONFIG();
 }
+
+void __ada_SET_esp_vfs_fat_mount_config_t_format_if_mount_failed(esp_vfs_fat_mount_config_t *cfg, bool to)
+{
+    cfg->format_if_mount_failed = to;
+}

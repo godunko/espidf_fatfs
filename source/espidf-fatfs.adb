@@ -66,4 +66,23 @@ package body ESPIDF.FATFS is
       Imported (Self);
    end Initialize;
 
+   --------------------------------
+   -- Set_format_if_mount_failed --
+   --------------------------------
+
+   procedure Set_format_if_mount_failed
+     (Self : in out esp_vfs_fat_mount_config_t;
+      To   : Boolean)
+   is
+      procedure Imported
+        (self : in out esp_vfs_fat_mount_config_t;
+         to   : bool)
+        with Import, Convention => C,
+             External_Name =>
+               "__ada_SET_esp_vfs_fat_mount_config_t_format_if_mount_failed";
+
+   begin
+      Imported (Self, bool (To));
+   end Set_format_if_mount_failed;
+
 end ESPIDF.FATFS;
