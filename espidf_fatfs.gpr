@@ -1,0 +1,21 @@
+--
+--  Copyright (C) 2026, Vadim Godunko <vgodunko@gmail.com>
+--
+--  SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+--
+
+with "config/espidf_fatfs_config.gpr";
+
+with "espidf.gpr";
+
+library project ESPIDF_FATFS is
+
+   for Languages use ("Ada", "C");
+   for Library_Name use "adaespidf_fatfs";
+   for Library_Dir use ESPIDF.Crate_Library_Dir;
+   for Object_Dir use ESPIDF.Crate_Object_Dir;
+   for Source_Dirs use ("source");
+
+   package Compiler renames ESPIDF.Compiler;
+
+end ESPIDF_FATFS;

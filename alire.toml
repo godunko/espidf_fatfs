@@ -1,0 +1,27 @@
+name = "espidf_fatfs"
+version = "0.1.0-dev"
+website = "https://github.com/godunko/espidf_fatfs"
+description = "Ada/ESP-IDF: FAT Filesystem Support bindings"
+long-description = """
+Ada bindings for the ESP-IDF `fatfs` component, enabling standard FAT file system operations on ESP32 microcontrollers.
+
+Key Features:
+- File & Directory Management: Provides Ada abstractions for creating, reading, writing, and navigating files and folders on FAT partitions.
+- Storage Media Integration: Supports FAT12, FAT16, and FAT32 file systems mounted over SD cards (SDMMC/SPI) or internal flash (with wear leveling).
+- VFS Compatibility: Integrates with the ESP-IDF Virtual File System layer for standard I/O operations.
+- Configuration Support: Built-in support for long filenames (LFN), heap/stack allocations, and multi-volume mounts.
+"""
+
+authors = ["Vadim Godunko"]
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>"]
+maintainers-logins = ["godunko"]
+licenses = "Apache-2.0 WITH LLVM-exception"
+tags = ["a0b", "embedded", "esp", "esp32", "espidf"]
+
+[configuration]
+generate_ada = false
+generate_c = false
+generate_gpr = true
+
+[[depends-on]]
+espidf_wear_levelling = "*"
